@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<odoo>
+    <menuitem id="menu_pedido"
+              name="Gerencimaneto de Pedidos"
+              sequence="1"/>
+
+    <act_window id="action_pedido"
+        name="Pedidos"
+        res_model="pedidos.pedido"
+        view_mode="tree,form" />
+
+    <menuitem id="menu_pedidos"
+        name="Pedidos"
+        parent="menu_pedido"
+        action="action_pedido"/>
+
+    <act_window id="action_produto"
+        name="Produtos"
+        res_model="pedidos.produto"
+        view_mode="tree,form" />
+
+    <menuitem id="menu_produtos"
+        name="Produtos"
+        parent="menu_pedido"
+        action="action_produto"/>
+
+</odoo>

@@ -7,5 +7,7 @@
     'data': [
         'security/ir.model.access.csv',
         'security/pedido_security.xml',
+        'views/pedido_menu.xml',
+        'views/pedido_view.xml',
     ]
 }

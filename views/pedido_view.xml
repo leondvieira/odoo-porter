@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_form_pedido" model="ir.ui.view">
+        <field name="name">Formulário de Pedido</field>
+        <field name="model">pedidos.pedido</field>
+        <field name="arch" type="xml">
+            <form string="Pedido">
+                <widget name="web_ribbon" text="Concluído" attrs="{'invisible': [('status', '!=', 'done')]}"/>
+                <widget name="web_ribbon" text="Cancelado"
+                        attrs="{'invisible': [('status', '!=', 'canceled')]}" bg_color="bg-danger"/>
+                <widget name="web_ribbon" text="Em Processo"
+                        attrs="{'invisible': [('status', '!=', 'in_progress')]}" bg_color="bg-primary"/>
+                <widget name="web_ribbon" text="Aberto"
+                        attrs="{'invisible': [('status', '!=', 'open')]}" bg_color="bg-warning"/>
+                <notebook>
+                    <page string="Informações do Pedido">
+                        <group>
+                            <field name="cliente"/>
+                            <field name="data"/>
+                            <field name="status"/>
+                        </group>
+                    </page>
+                    <page string="Produtos">
+                        <group>
+                            <field name="produto_ids" widget="one2many_list"/>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_pedido" model="ir.ui.view">
+        <field name="name">Pedido</field>
+        <field name="model">pedidos.pedido</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="cliente" string="Cliente"/>
+                <field name="data" string="Data"/>
+                <field name="status" string="Status"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.server" id="finalizar_pedido">
+       <field name="name">Finalizar Pedido</field>
+       <field name="model_id" ref="model_pedidos_pedido"/>
+       <field name="binding_model_id" ref="model_pedidos_pedido"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.finalizar_pedido()
+       </field>
+   </record>
+    <record model="ir.actions.server" id="cancelar_pedido">
+       <field name="name">Cancelar Pedido</field>
+       <field name="model_id" ref="model_pedidos_pedido"/>
+       <field name="binding_model_id" ref="model_pedidos_pedido"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.cancelar_pedido()
+       </field>
+   </record>
+    <record model="ir.actions.server" id="processar_pedido">
+       <field name="name">Processar Pedido</field>
+       <field name="model_id" ref="model_pedidos_pedido"/>
+       <field name="binding_model_id" ref="model_pedidos_pedido"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.processar_pedido()
+       </field>
+   </record>
+    <record model="ir.actions.server" id="abrir_pedido">
+       <field name="name">Abrir Pedido</field>
+       <field name="model_id" ref="model_pedidos_pedido"/>
+       <field name="binding_model_id" ref="model_pedidos_pedido"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.abrir_pedido()
+       </field>
+   </record>
+</odoo>
