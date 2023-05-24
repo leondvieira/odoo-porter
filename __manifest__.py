@@ -9,5 +9,6 @@
         'security/pedido_security.xml',
         'views/pedido_menu.xml',
         'views/pedido_view.xml',
+        'views/produto_view.xml',
     ]
 }

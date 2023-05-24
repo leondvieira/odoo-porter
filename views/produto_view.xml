@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<odoo>
+        <record id="view_form_produto" model="ir.ui.view">
+        <field name="name">Formulário do Produto</field>
+        <field name="model">pedidos.produto</field>
+        <field name="arch" type="xml">
+            <form string="Produto">
+                <group>
+                    <field name="nome"/>
+                    <field name="descricao"/>
+                    <field name="preco"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_produto" model="ir.ui.view">
+        <field name="name">Produto</field>
+        <field name="model">pedidos.produto</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nome" string="Nome"/>
+                <field name="descricao" string="Descrição"/>
+                <field name="preco" string="Preço"/>
+                <field name="pedido_id" string="Pedido"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
