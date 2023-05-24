@@ -3,5 +3,9 @@
     'description': 'App de Pedidos CondoTech.',
     'author': 'Leonardo Vieira',
     'depends': ['base'],
-    'application': True
+    'application': True,
+    'data': [
+        'security/ir.model.access.csv',
+        'security/pedido_security.xml',
+    ]
 }

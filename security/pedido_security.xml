@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="module_pedido_category" model="ir.module.category">
+        <field name="name">Pedido</field>
+    </record>
+
+    <record id="pedido_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id"
+           ref="module_pedido_category"/>
+        <field name="implied_ids"
+           eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>
